@@ -1,16 +1,16 @@
 **Organize your Anki deck list into clean, labeled sections.**
 
-![The Anki deck list split into Life Sciences, Languages and Hobbies sections](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/hero.png)
+<img src="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/hero.png" srcset="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/hero@2x.png 2x" width="640" alt="The Anki deck list split into Life Sciences, Languages and Hobbies sections">
 
 ## Group your decks
 
-![The same deck list without and with separators](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/before-after.png)
+<img src="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/before-after.png" srcset="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/before-after@2x.png 2x" width="900" alt="The same deck list without and with separators">
 
 ## Add one from the gear menu
 
 Click a deck's gear icon, then **Separator ▸ Above this deck** or **Below this deck**. Labels are optional: use **Label above…** or **Label below…** to name a separator.
 
-![The deck gear menu with the Separator submenu open](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/gear-menu.png)
+<img src="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/gear-menu.png" srcset="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/gear-menu@2x.png 2x" width="900" alt="The deck gear menu with the Separator submenu open">
 
 ## Make it yours
 
@@ -20,7 +20,7 @@ Click a deck's gear icon, then **Separator ▸ Above this deck** or **Below this
 - **Label:** left, centered or right, as small caps, plain text or a pill
 - **Spacing** above and below each line
 
-![Six separator designs](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/styles.png)
+<img src="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/styles.png" srcset="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/styles@2x.png 2x" width="900" alt="Six separator designs">
 
 ## Good to know
 

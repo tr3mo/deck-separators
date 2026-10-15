@@ -30,3 +30,5 @@ Click a deck's gear icon, then **Separator ▸ Above this deck** or **Below this
 - Requires Anki 23.10 or newer. The legacy Qt5 builds of Anki are not supported.
 
 Screenshots, source and issues: https://github.com/tr3mo/deck-separators
+
+Contact: [mohammad@morad.io](mailto:mohammad@morad.io)

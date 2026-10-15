@@ -43,3 +43,7 @@ Requires Anki 23.10 or newer. The legacy Qt5 builds of Anki are not supported.
 - A separator belongs to its deck: it moves when you rename or move the deck, and syncs through AnkiWeb with your collection. AnkiMobile and AnkiDroid don't show separators.
 - **Below this deck** places the line after the deck and its open subdecks. A separator inside a collapsed deck is hidden with it.
 - The design is saved per computer. Open it from **Separator ▸ Design…** or **Tools ▸ Add-ons ▸ Deck Separators ▸ Config**.
+
+## Contact
+
+Questions or feedback: [mohammad@morad.io](mailto:mohammad@morad.io), or [open an issue](../../issues).

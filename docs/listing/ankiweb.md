@@ -1,26 +1,26 @@
 **Organize your Anki deck list into clean, labeled sections.**
 
-<img src="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/hero.png" srcset="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/hero-2x.png 2x" width="640" alt="The Anki deck list split into Life Sciences, Languages and Hobbies sections">
+![The Anki deck list split into Life Sciences, Languages and Hobbies sections](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/hero.svg)
 
 ## Group your decks
 
-<img src="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/before-after.png" srcset="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/before-after-2x.png 2x" width="900" alt="The same deck list without and with separators">
+![The same deck list without and with separators](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/before-after.svg)
 
 ## Add one from the gear menu
 
 Click a deck's gear icon, then **Separator ▸ Above this deck** or **Below this deck**. Labels are optional: use **Label above…** or **Label below…** to name a separator.
 
-<img src="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/gear-menu.png" srcset="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/gear-menu-2x.png 2x" width="900" alt="The deck gear menu with the Separator submenu open">
+![The deck gear menu with the Separator submenu open](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/gear-menu.svg)
 
 ## Make it yours
 
 **Separator ▸ Design…** restyles every separator at once, with a live preview:
 
-- **Line:** solid, fade, dashed, dotted or double, 1–8 px, theme color or any custom color
+- **Line:** solid, fade, dashed, dotted or double, 1-8 px, theme color or any custom color
 - **Label:** left, centered or right, as small caps, plain text or a pill
 - **Spacing** above and below each line
 
-<img src="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/styles.png" srcset="https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/styles-2x.png 2x" width="900" alt="Six separator designs">
+![Six separator designs](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/ankiweb/styles.svg)
 
 ## Good to know
 

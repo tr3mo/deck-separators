@@ -1,0 +1,9 @@
+{
+  "package": "deck_separators",
+  "name": "Deck Separators",
+  "author": "Mohammad Morad",
+  "human_version": "1.0.0",
+  "homepage": "https://github.com/tr3mo/deck-separators",
+  "min_point_version": 231000,
+  "max_point_version": 0
+}

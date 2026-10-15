@@ -20,7 +20,7 @@ Deck Separators adds horizontal lines between decks on the Decks screen, with an
 
 **Get it**
 
-- AnkiWeb: TODO – add the AnkiWeb link and install code after uploading
+- AnkiWeb: https://ankiweb.net/shared/info/2097527231 (install code `2097527231`)
 - GitHub: https://github.com/tr3mo/deck-separators
 
 Feedback and ideas are welcome in this thread.

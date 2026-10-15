@@ -32,9 +32,9 @@ Separators follow Anki's theme unless you choose a custom color.
 
 ## Install
 
-1. Download `deck_separators.ankiaddon` from [Releases](../../releases).
-2. In Anki, open **Tools ▸ Add-ons**, click **Install from file...** and pick the file.
-3. Restart Anki.
+**From [AnkiWeb](https://ankiweb.net/shared/info/2097527231):** in Anki, open **Tools ▸ Add-ons**, click **Get Add-ons...**, paste the code `2097527231` and restart Anki.
+
+**From a file:** download `deck_separators.ankiaddon` from [Releases](../../releases), then in **Tools ▸ Add-ons** click **Install from file...**, pick the file and restart Anki.
 
 Requires Anki 23.10 or newer. The legacy Qt5 builds of Anki are not supported.
 

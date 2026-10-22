@@ -4,6 +4,7 @@ Click a deck's gear icon ▸ Separator, then tick "Above this deck" or
 "Below this deck". "Below" sits after the deck *and* its visible subdecks, so
 the line stays where you put it when you expand or collapse a deck. A separator
 can carry an optional label (gear ▸ Separator ▸ Label above…/below…).
+Click a separator to edit its label, remove it or open Design….
 
 Gear ▸ Separator ▸ Design… (or Tools ▸ Add-ons ▸ Deck Separators ▸ Config)
 changes the look of all separators, with a live preview.
@@ -20,7 +21,7 @@ from typing import Any
 
 from aqt import gui_hooks, mw
 from aqt.deckbrowser import DeckBrowser
-from aqt.qt import QMenu, qconnect
+from aqt.qt import QCursor, QMenu, qconnect
 from aqt.utils import getText
 
 from .design import Design
@@ -30,6 +31,7 @@ ADDON = __name__
 CONFIG_KEY = "deckSeparators"
 ABOVE = "above"
 BELOW = "below"
+CMD_PREFIX = "deck_separators:"  # pycmd sent when a separator is clicked
 # Anki's deck table: deck name (colspan 5) + New + Learn + Due + gear column.
 COLUMNS = 9
 
@@ -100,9 +102,11 @@ def _render_deck_node(self: DeckBrowser, node: Any, ctx: Any) -> str:
         seps = _load().get(str(node.deck_id))
         if seps:
             if ABOVE in seps:
-                buf = separator_row(seps[ABOVE], COLUMNS) + buf
+                cmd = f"{CMD_PREFIX}{node.deck_id}:{ABOVE}"
+                buf = separator_row(seps[ABOVE], COLUMNS, cmd) + buf
             if BELOW in seps:
-                buf += separator_row(seps[BELOW], COLUMNS)
+                cmd = f"{CMD_PREFIX}{node.deck_id}:{BELOW}"
+                buf += separator_row(seps[BELOW], COLUMNS, cmd)
     except Exception as exc:  # never break the Decks screen over a separator
         print(f"Deck Separators: {exc!r}")
     return buf
@@ -167,6 +171,39 @@ def _on_options_menu(menu: QMenu, deck_id: int) -> None:
     qconnect(sub.addAction("Design…").triggered, lambda _checked=False: _open_design())
 
 
+# clicking a separator
+
+
+def _show_separator_menu(deck_id: int, pos: str) -> None:
+    seps = _load().get(str(deck_id), {})
+    if pos not in seps:
+        return
+    menu = QMenu(mw)
+    where = "Above" if pos == ABOVE else "Below"
+    menu.addAction(f"{where} {mw.col.decks.name(deck_id)}").setEnabled(False)
+    menu.addSeparator()
+    label = "Edit label…" if seps[pos] else "Add label…"
+    qconnect(menu.addAction(label).triggered, lambda _checked=False: _edit_label(deck_id, pos))
+    qconnect(menu.addAction("Remove").triggered, lambda _checked=False: _toggle(deck_id, pos, False))
+    menu.addSeparator()
+    qconnect(menu.addAction("Design…").triggered, lambda _checked=False: _open_design())
+    menu.popup(QCursor.pos())
+
+
+def _on_js_message(handled: tuple[bool, Any], message: str, context: Any) -> tuple[bool, Any]:
+    if not isinstance(context, DeckBrowser) or not message.startswith(CMD_PREFIX):
+        return handled
+    try:
+        did, pos = message[len(CMD_PREFIX):].split(":")
+        deck_id = int(did)
+    except ValueError:
+        return (True, None)
+    if pos in (ABOVE, BELOW):
+        _show_separator_menu(deck_id, pos)
+    return (True, None)
+
+
 gui_hooks.deck_browser_will_show_options_menu.append(_on_options_menu)
 gui_hooks.webview_will_set_content.append(_on_webview_will_set_content)
+gui_hooks.webview_did_receive_js_message.append(_on_js_message)
 mw.addonManager.setConfigAction(ADDON, _open_design)

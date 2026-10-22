@@ -13,6 +13,7 @@
 ![The deck gear menu with the Separator submenu open](docs/images/gear-menu.png)
 
 Click a deck's gear, then **Separator ▸ Above this deck** or **Below this deck**. Labels are optional.
+Click a separator to edit its label or remove it.
 
 ## Make it yours
 

@@ -34,16 +34,20 @@ from aqt.webview import AnkiWebView
 from .design import LABEL_POSITIONS, LABEL_STYLES, LINE_STYLES, RANGES, Design
 
 
-def separator_row(label: str, columns: int) -> str:
-    """One separator row for Anki's deck table. The look comes entirely from CSS."""
+def separator_row(label: str, columns: int, command: str = "") -> str:
+    """One separator row for Anki's deck table. The look comes entirely from CSS.
+
+    With a command, clicking the row sends it to Python via pycmd().
+    """
+    onclick = f" onclick='return pycmd(\"{command}\")'" if command else ""
     if label:
         return (
-            f"<tr class='deck-separator ds-row-labelled'><td colspan={columns}>"
+            f"<tr class='deck-separator ds-row-labelled'{onclick}><td colspan={columns}>"
             "<div class='ds-line ds-labelled'>"
             f"<span class='ds-label'>{html.escape(label)}</span></div></td></tr>"
         )
     return (
-        f"<tr class='deck-separator ds-row-plain'><td colspan={columns}>"
+        f"<tr class='deck-separator ds-row-plain'{onclick}><td colspan={columns}>"
         "<div class='ds-line ds-plain'></div></td></tr>"
     )
 

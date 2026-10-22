@@ -85,6 +85,13 @@ tr.deck-separator:hover td {{
     padding: {self.padding_top_px}px 0 {self.padding_bottom_px}px 0 !important;
     cursor: default;
 }}
+/* On the Decks screen a separator opens its edit menu when clicked. */
+tr.deck-separator[onclick] td {{
+    cursor: pointer;
+}}
+tr.deck-separator[onclick]:hover .ds-line {{
+    opacity: 0.6;
+}}
 /* The separator takes the place of the row border right above it. */
 tr.deck:has(+ tr.deck-separator) td {{
     border-bottom-color: transparent !important;

@@ -4,7 +4,7 @@ Deck Separators adds horizontal lines between decks on the Decks screen, with an
 
 ![Deck list with Life Sciences, Languages and Hobbies sections](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/hero.png)
 
-**How to use:** click a deck's gear icon, then **Separator ▸ Above this deck** or **Below this deck**. Labels are optional.
+**How to use:** click a deck's gear icon, then **Separator ▸ Above this deck** or **Below this deck**. Labels are optional. Click a separator to edit its label or remove it.
 
 ![The Separator submenu in the deck gear menu](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/gear-menu.png)
 

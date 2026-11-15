@@ -8,7 +8,7 @@ Deck Separators adds horizontal lines between decks on the Decks screen, with an
 
 ![The Separator submenu in the deck gear menu](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/gear-menu.png)
 
-**Make it yours:** **Separator ▸ Design…** restyles every separator at once, with a live preview. Choose from five line styles (solid, fade, dashed, dotted, double), three label styles (small caps, plain, pill), left/centered/right labels, any color, and the spacing above and below.
+**Make it yours:** **Separator ▸ Design…** restyles every separator at once, with a live preview. Choose from five line styles (solid, fade, dashed, dotted, double) or none for plain section headings, three label styles (small caps, plain, pill), left/centered/right labels, any color, and the spacing above and below.
 
 ![Six separator designs](https://raw.githubusercontent.com/tr3mo/deck-separators/main/docs/images/styles.png)
 

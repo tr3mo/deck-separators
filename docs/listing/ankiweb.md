@@ -6,7 +6,7 @@
 
 **Separator ▸ Design…** restyles every separator at once, with a live preview:
 
-- **Line:** solid, fade, dashed, dotted or double, 1-8 px, theme color or any custom color
+- **Line:** solid, fade, dashed, dotted, double or none (headings only), 1-8 px, theme color or any custom color
 - **Label:** left, centered or right, as small caps, plain text or a pill
 - **Spacing** above and below each line
 

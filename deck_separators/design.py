@@ -21,6 +21,7 @@ LINE_STYLES = {
     "dashed": "Dashed",
     "dotted": "Dotted",
     "double": "Double",
+    "none": "None (heading only)",
 }
 LABEL_POSITIONS = {"left": "Left", "center": "Center", "right": "Right"}
 LABEL_STYLES = {"caps": "Small caps", "plain": "Plain", "pill": "Pill"}
@@ -125,6 +126,8 @@ tr.ds-row-plain:has(+ tr.ds-row-labelled) {{
 }}
 """
         css += _LINE_CSS[self.line_style](thick)
+        if self.line_style == "none":
+            css += f".ds-line {{ justify-content: {_JUSTIFY[self.label_position]}; }}\n"
         css += _LABEL_CSS[self.label_style]
         return css
 
@@ -179,6 +182,19 @@ def _fade_line(thick: int) -> str:
 """
 
 
+def _no_line(thick: int) -> str:
+    # Heading only: no rule, so the label itself is placed with flexbox.
+    return """
+.ds-line::before,
+.ds-line::after {
+    display: none;
+}
+"""
+
+
+# Where the label sits when there are no lines to push it into place.
+_JUSTIFY = {"left": "flex-start", "center": "center", "right": "flex-end"}
+
 # Which half of a labelled line to hide for each label position.
 _HIDE_FOR_POSITION = {
     "left": ",\n.ds-labelled::before",
@@ -200,6 +216,7 @@ _LINE_CSS = {
     "dashed": _border_line("dashed"),
     "dotted": _border_line("dotted"),
     "double": _border_line("double"),
+    "none": _no_line,
 }
 
 _LABEL_CSS = {

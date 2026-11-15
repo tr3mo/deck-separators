@@ -238,6 +238,7 @@ class DesignDialog(QDialog):
         if self.custom_color.isChecked() and not self._color:
             self._color = "#8a8a8a"
         self.color_button.setEnabled(self.custom_color.isChecked())
+        self.thickness.setEnabled(self.line_style.currentData() != "none")
         swatch = self._color if self.custom_color.isChecked() else "transparent"
         self.color_button.setStyleSheet(
             f"background: {swatch}; border: 1px solid palette(mid); border-radius: 4px;"

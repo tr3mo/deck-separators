@@ -5,6 +5,7 @@ Click a deck's gear icon ▸ Separator, then tick "Above this deck" or
 the line stays where you put it when you expand or collapse a deck. A separator
 can carry an optional label (gear ▸ Separator ▸ Label above…/below…).
 Click a separator to edit its label, remove it or open Design….
+Once, on first use, a tooltip on the Decks screen points to the gear menu.
 
 Gear ▸ Separator ▸ Design… (or Tools ▸ Add-ons ▸ Deck Separators ▸ Config)
 changes the look of all separators, with a live preview.
@@ -21,8 +22,8 @@ from typing import Any
 
 from aqt import gui_hooks, mw
 from aqt.deckbrowser import DeckBrowser
-from aqt.qt import QCursor, QMenu, qconnect
-from aqt.utils import getText
+from aqt.qt import QCursor, QMenu, QTimer, qconnect
+from aqt.utils import getText, tooltip
 
 from .design import Design
 from .dialog import open_dialog, separator_row
@@ -32,6 +33,7 @@ CONFIG_KEY = "deckSeparators"
 ABOVE = "above"
 BELOW = "below"
 CMD_PREFIX = "deck_separators:"  # pycmd sent when a separator is clicked
+HINT_KEY = "deckSeparatorsHintShown"  # profile flag: the first-run hint was handled
 # Anki's deck table: deck name (colspan 5) + New + Learn + Due + gear column.
 COLUMNS = 9
 
@@ -203,7 +205,29 @@ def _on_js_message(handled: tuple[bool, Any], message: str, context: Any) -> tup
     return (True, None)
 
 
+# first-run hint
+
+
+def _show_hint() -> None:
+    if mw.col is None or mw.state != "deckBrowser" or mw.pm.profile.get(HINT_KEY):
+        return
+    mw.pm.profile[HINT_KEY] = True
+    if _load():  # already using separators, nothing to explain
+        return
+    tooltip(
+        "Deck Separators: click a deck's gear ▸ Separator to add a line or heading.",
+        period=10000,
+        parent=mw,
+    )
+
+
+def _on_deck_browser_did_render(_browser: DeckBrowser) -> None:
+    if mw.pm.profile is not None and not mw.pm.profile.get(HINT_KEY):
+        QTimer.singleShot(1000, _show_hint)  # let the window settle first
+
+
 gui_hooks.deck_browser_will_show_options_menu.append(_on_options_menu)
 gui_hooks.webview_will_set_content.append(_on_webview_will_set_content)
 gui_hooks.webview_did_receive_js_message.append(_on_js_message)
+gui_hooks.deck_browser_did_render.append(_on_deck_browser_did_render)
 mw.addonManager.setConfigAction(ADDON, _open_design)
